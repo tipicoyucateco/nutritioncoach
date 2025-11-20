@@ -662,7 +662,10 @@ Por favor:
       const apiKey = import.meta.env.VITE_GROQ_API_KEY;
       
       if (!apiKey) {
-        toast.error("API Key de Groq no configurada. Por favor, configura VITE_GROQ_API_KEY en el archivo .env");
+        const errorMessage = import.meta.env.PROD 
+          ? "API Key de Groq no configurada en GitHub Pages. Por favor, configura el secret VITE_GROQ_API_KEY en GitHub."
+          : "API Key de Groq no configurada. Por favor, configura VITE_GROQ_API_KEY en el archivo .env";
+        toast.error(errorMessage);
         setIsLoading(false);
         return;
       }
