@@ -659,7 +659,13 @@ Por favor:
     setAnalysisResult("");
 
     try {
-      const apiKey = import.meta.env.VITE_GROQ_API_KEY || "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";
+      const apiKey = import.meta.env.VITE_GROQ_API_KEY;
+      
+      if (!apiKey) {
+        toast.error("API Key de Groq no configurada. Por favor, configura VITE_GROQ_API_KEY en el archivo .env");
+        setIsLoading(false);
+        return;
+      }
 
       const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",
