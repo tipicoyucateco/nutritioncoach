@@ -1,5 +1,6 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "coachito-ia",
+  "homepage": "https://tipicoyucateco.github.io/nutritioncoach",
   "private": true,
   "version": "0.0.0",
   "type": "module",
