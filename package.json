@@ -2,6 +2,7 @@
   "name": "coachito-ia",
   "homepage": "https://tipicoyucateco.github.io/nutritioncoach",
   "private": true,
+  "description": "Coachito.IA - Evalúa tu consumo de macronutrientes diarios",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
