@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fondo circular con sombra sutil -->
+  <circle cx="50" cy="50" r="48" fill="url(#grad1)"/>
+  
+  <!-- Letra "C" estilizada para Coachito -->
+  <path d="M 32 28 Q 26 28 26 34 L 26 50 Q 26 56 32 56 Q 38 56 38 50 L 38 34 Q 38 28 32 28" 
+        fill="white" 
+        stroke="white" 
+        stroke-width="2.5"
+        stroke-linejoin="round"/>
+  
+  <!-- Punto de la "i" -->
+  <circle cx="48" cy="28" r="5" fill="white"/>
+  
+  <!-- Línea de la "i" -->
+  <line x1="48" y1="35" x2="48" y2="62" 
+        stroke="white" 
+        stroke-width="4" 
+        stroke-linecap="round"/>
+  
+  <!-- Símbolo de nutrición: plato/escudo estilizado -->
+  <ellipse cx="68" cy="68" rx="12" ry="8" fill="white" opacity="0.25"/>
+  <path d="M 68 60 Q 62 60 60 65 Q 60 70 65 72 Q 68 73 71 72 Q 76 70 76 65 Q 76 60 68 60" 
+        fill="white" 
+        opacity="0.4"
+        stroke="white"
+        stroke-width="1.5"/>
+</svg>
+
