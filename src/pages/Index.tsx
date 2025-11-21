@@ -628,6 +628,26 @@ const Index = () => {
       return;
     }
 
+    // Validar que haya al menos una comida en Desayuno, Almuerzo y Cena
+    const breakfastValid = meals.breakfast.filter(item => item.name.trim() && item.quantity.trim()).length > 0;
+    const lunchValid = meals.lunch.filter(item => item.name.trim() && item.quantity.trim()).length > 0;
+    const dinnerValid = meals.dinner.filter(item => item.name.trim() && item.quantity.trim()).length > 0;
+
+    if (!breakfastValid) {
+      toast.error("Por favor agrega al menos un alimento en Desayuno");
+      return;
+    }
+
+    if (!lunchValid) {
+      toast.error("Por favor agrega al menos un alimento en Almuerzo");
+      return;
+    }
+
+    if (!dinnerValid) {
+      toast.error("Por favor agrega al menos un alimento en Cena");
+      return;
+    }
+
     const breakfastText = formatMealText(meals.breakfast);
     const lunchText = formatMealText(meals.lunch);
     const dinnerText = formatMealText(meals.dinner);
