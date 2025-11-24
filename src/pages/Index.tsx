@@ -22,6 +22,8 @@ interface Meal {
 }
 
 // Componente principal de Coachito.IA
+const AI_MODEL = "llama-3.3-70b-versatile"; // Modelo de IA utilizado
+
 const Index = () => {
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
@@ -707,7 +709,7 @@ Por favor:
           Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          model: "llama-3.3-70b-versatile",
+          model: AI_MODEL,
           messages: [
             {
               role: "system",
@@ -1207,13 +1209,19 @@ Por favor:
             </CardContent>
           </Card>
 
-          {/* Contador de ejecuciones exitosas */}
-          <div className="mt-4 sm:mt-6 text-center">
+          {/* Contador de ejecuciones exitosas y modelo de IA */}
+          <div className="mt-4 sm:mt-6 space-y-3 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-lg">
               <CheckCircle2 className="h-4 w-4 text-primary" />
               <span className="text-sm text-foreground/80">
                 <span className="font-semibold text-primary">{successCount.toLocaleString()}</span>{" "}
                 {successCount === 1 ? "análisis completado" : "análisis completados"}
+              </span>
+            </div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-muted/50 border border-primary/10 rounded-lg">
+              <Zap className="h-4 w-4 text-primary/70" />
+              <span className="text-xs text-foreground/60">
+                Powered by <span className="font-semibold text-foreground/80">{AI_MODEL}</span>
               </span>
             </div>
           </div>
