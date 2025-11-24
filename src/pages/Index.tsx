@@ -1190,7 +1190,6 @@ Por favor:
               <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
                 <div className="flex items-center gap-2 text-primary">
                   <Heart className="h-4 w-4 sm:h-5 sm:w-5 fill-primary" />
-                  <h3 className="text-base sm:text-lg font-semibold">Agradecimientos</h3>
                 </div>
                 <div className="space-y-2 sm:space-y-3 text-sm sm:text-base text-foreground/90">
                   <p className="font-medium">Ayúdame a mejorar este sitio.</p>
