@@ -21,6 +21,7 @@ interface Meal {
   snacks: FoodItem[];
 }
 
+// Componente principal de Coachito.IA
 const Index = () => {
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
