@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -32,6 +32,7 @@ const Index = () => {
   const [activityLevel, setActivityLevel] = useState("");
   const [analysisResult, setAnalysisResult] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [successCount, setSuccessCount] = useState(0);
 
   const [meals, setMeals] = useState<Meal>({
     breakfast: [],
@@ -39,6 +40,14 @@ const Index = () => {
     dinner: [],
     snacks: [],
   });
+
+  // Cargar contador desde localStorage al iniciar
+  useEffect(() => {
+    const savedCount = localStorage.getItem("coachito_success_count");
+    if (savedCount) {
+      setSuccessCount(parseInt(savedCount, 10));
+    }
+  }, []);
 
   const addFoodItem = (mealType: keyof Meal) => {
     setMeals({
@@ -725,6 +734,11 @@ Por favor:
       if (assistantMessage) {
         setAnalysisResult(assistantMessage);
         toast.success("Análisis completado con éxito");
+        
+        // Incrementar contador de ejecuciones exitosas
+        const newCount = successCount + 1;
+        setSuccessCount(newCount);
+        localStorage.setItem("coachito_success_count", newCount.toString());
       } else {
         throw new Error("No se recibió respuesta de Groq");
       }
@@ -1192,6 +1206,17 @@ Por favor:
               </div>
             </CardContent>
           </Card>
+
+          {/* Contador de ejecuciones exitosas */}
+          <div className="mt-4 sm:mt-6 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-lg">
+              <CheckCircle2 className="h-4 w-4 text-primary" />
+              <span className="text-sm text-foreground/80">
+                <span className="font-semibold text-primary">{successCount.toLocaleString()}</span>{" "}
+                {successCount === 1 ? "análisis completado" : "análisis completados"}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
